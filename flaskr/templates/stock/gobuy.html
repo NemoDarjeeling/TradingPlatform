@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Go buy some stocks - BigBucks</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/css2.css') }}">
+
+  <link rel="manifest" href="{{ url_for('static', filename='image/site.webmanifest') }}">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
+</head>
+<body class="home-three">
+	<div class="preloader">
+		<div class="preloader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div><!-- /.preloader -->
+	<div class="page-wrapper">
+		<header class="main-menu header-one thm-sticky-header">
+			<div class="container">
+				<nav class="main-menu-inner">
+					<div class="main-menu-logo">
+						<a href=""><img src="{{ url_for('static', filename='picture/bbLogo1.png') }}" alt="logo" width="240" ></a>
+					</div>
+
+					<div class="main-menu-right">
+						<div class="mobile-menu-toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+            <a href="{{ url_for('user.trade') }}" class="thm-btn thm-btn-outline" style="color: rgb(239, 224, 85)">Start Trading Now!</a>
+						<a href="{{ url_for('user.index') }}" class="thm-btn thm-btn-outline">Return</a>
+					</div>
+				</nav>
+			</div><!-- /.container -->
+		</header><!-- /.main-menu -->
+		<div class="login-page">
+      <div class="blog-single-shape-3"></div>
+			<div class="blog-single-shape-4"></div>
+			<div class="blog-single-shape-5"></div>
+			<div class="blog-single-shape-6"></div>
+			<div class="container">
+				<div class="login-box">
+					<div class="login-title">
+						<h3>Whoops!</h3>
+						<p>It seems that you have less than 2 stocks <br> We are unable to make a portfolio for you</p>
+					</div>
+          <p></p>
+          <p></p>
+					<div class="login-options">
+						<span class="login-options-text" style="color: rgb(22, 8, 169);">**Notice**</span>
+						<div class="login-options-inner">
+							<p class="center-text" style="color: rgb(22, 8, 169);">Click "Start Trading Now" to buy some stocks<br>Click "Return" to go back</p>
+						</div>
+					</div><!-- /.login-options -->
+				</div><!-- /.login-box -->
+			</div><!-- /.container -->
+		</div><!-- /.login-page -->
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<svg class="scroll-to-top-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</a>
+	</div><!-- /.page-wrapper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.plot.ly/plotly-2.15.0.min.js"></script>
+  <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+</body>
+</html>

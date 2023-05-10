@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register - BigBucks</title>
+
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/css2.css') }}">
+
+  <link rel="manifest" href="{{ url_for('static', filename='image/site.webmanifest') }}">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
+</head>
+<body class="home-one">
+	<div class="preloader">
+		<div class="preloader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div><!-- /.preloader -->
+	<div class="page-wrapper">
+		<header class="main-menu header-one thm-sticky-header">
+			<div class="container">
+				<nav class="main-menu-inner">
+					<div class="main-menu-logo">
+						<a href=""><img src="{{ url_for('static', filename='picture/bbLogo1.png') }}" alt="logo" width="240" ></a>
+					</div>
+
+					<div class="main-menu-right">
+						<div class="mobile-menu-toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<a href="{{ url_for('auth.login') }}" class="thm-btn thm-btn-outline">LogIn</a>
+						<a href="{{ url_for('hello') }}" class="thm-btn thm-btn-outline">Back</a>
+					</div>
+				</nav>
+			</div><!-- /.container -->
+		</header><!-- /.main-menu -->
+		<div class="login-page">
+			<div class="blog-single-shape-3"></div>
+			<div class="blog-single-shape-4"></div>
+			<div class="blog-single-shape-5"></div>
+			<div class="blog-single-shape-6"></div>
+			<div class="container">
+				<div class="login-box">
+					<div class="login-title">
+						<h3>Register</h3>
+						<p style="color: black;">Register to get access</p>
+					</div>
+					<form class="login-form" method="post">
+						<div class="form-group">
+							<input name="username" id="username" placeholder="Enter Your Username*" class="thm-form-control" required>
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" id="password" placeholder="Enter Your Password*" class="thm-form-control" required>
+						</div><!-- /.form-group -->
+
+						<div class="form-group">
+							<label style="color: black;" for="admin">Admin</label>
+							<input type="checkbox" name="admin" id="admin">
+						</div>
+
+						<div id="admin-password" style="display: none;">
+							<input type="password" name="adminpassword" id = "adminpassword" placeholder="Enter Admin Permission Code*" class="thm-form-control">
+							<p></p>
+							<p></p>
+						</div>
+
+						<div class="form-group">
+							<input class="thm-btn" type="submit" value="Register">
+						</div>
+					</form><!-- /.login-form -->
+					<div class="login-options">
+						<span class="login-options-text" style="color: black;">Notice</span>
+						<div class="login-options-inner">
+							{% for message in get_flashed_messages() %}
+							<div class="flash" style="color: rgb(240, 118, 118)">{{ message }}</div>
+						  	{% endfor %}
+						</div>
+					</div><!-- /.login-options -->
+				</div><!-- /.login-box -->
+			</div><!-- /.container -->
+		</div><!-- /.login-page -->
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<svg class="scroll-to-top-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</a>
+	</div><!-- /.page-wrapper -->
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+<script>
+	function generateRandomPassword(length) {
+	var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+	var password = "";
+	for (var i = 0; i < length; i++) {
+	  var randomIndex = Math.floor(Math.random() * charset.length);
+	  password += charset.charAt(randomIndex);
+	}
+	return password;
+	}
+	const Checkbox = document.getElementById('admin');
+	const inputContainer = document.getElementById('admin-password');
+
+	Checkbox.addEventListener('change', function() {
+	  if (this.checked) {
+		const randomNumber = Math.floor(Math.random() * 51) + 50;
+		secret = generateRandomPassword(randomNumber)
+		fetch('/auth/save-secret', {
+		method: 'POST',
+		body: JSON.stringify({ secret: secret }),
+		headers: {
+		  'Content-Type': 'application/json'
+		}
+	  })
+	  .then(response => console.log('Secret sent to server!'))
+	  .catch(error => console.error(error));
+	  inputContainer.style.display = 'block';
+	  } else {
+		inputContainer.style.display = 'none';
+	  }
+	});
+</script>
+</body>
+</html>

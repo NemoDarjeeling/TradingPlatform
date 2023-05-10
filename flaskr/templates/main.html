@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Welcome to BigBucks</title>
+
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link href="static/css/css21.css" rel="stylesheet">
+
+
+	<link rel="manifest" href="static/image/site.webmanifest">
+
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/all.min.css">
+	<link rel="stylesheet" href="static/css/animate.min.css">
+	<link rel="stylesheet" href="static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="static/css/owl.theme.default.css">
+	<link rel="stylesheet" href="static/css/theme.css">
+</head>
+<body class="home-one">
+	<div class="preloader">
+		<div class="preloader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div><!-- /.preloader -->
+	<div class="page-wrapper">
+		<header class="main-menu header-one thm-sticky-header">
+			<div class="container">
+				<nav class="main-menu-inner">
+					<div class="main-menu-logo">
+						<a href=""><img src="static/picture/bbLogo.png" alt="logo" width="120" ></a>
+					</div>
+
+					<div class="main-menu-right">
+						<div class="mobile-menu-toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+            {% if g.user and g.admin%}
+						<a href="{{ url_for('auth.logout') }}" class="thm-btn thm-btn-outline">Log out</a>
+						<a href="{{ url_for('admin.adminindex') }}" class="thm-btn thm-btn-outline">Admin Page</a>
+						{% elif g.user %}
+						<a href="{{ url_for('auth.logout') }}" class="thm-btn thm-btn-outline">Log out</a>
+						<a href="{{ url_for('user.index') }}" class="thm-btn thm-btn-outline">User Page</a>
+						{% else %}
+						<a href="{{ url_for('auth.login') }}" class="thm-btn thm-btn-outline">Login</a>
+						<a href="{{ url_for('auth.register') }}" class="thm-btn thm-btn-outline">Register</a>
+						{% endif %}
+					</div><!-- /.main-menu-right -->
+				</nav>
+			</div><!-- /.container -->
+		</header><!-- /.main-menu -->
+		<section class="slider-one">
+			<div class="owl-carousel owl-theme slider-one-swiper">
+					<div class="item">
+						<div class="slider-one-content">
+							<div class="container">
+								<div class="slider-one-floating-image image-1" style="left: 0; top: -20px;">
+									<img src="static/picture/coin-1.png" alt="">
+								</div>
+								<div class="slider-one-floating-image image-2" style="right: 0; top: -20px;">
+									<img src="static/picture/coin-2.png" alt="">
+								</div>
+								<div class="slider-one-floating-image image-3" style="right: 100%; top: calc(100% - 20px);">
+									<img src="static/picture/coin-3.png" alt="">
+								</div>
+								<div class="slider-one-floating-image image-4" style="left: calc(100% - 50px); bottom: -80px;">
+									<img src="static/picture/rocket.png" alt="">
+								</div>
+								<h2 class="slider-one-title"><span>BigBucks: </span> RobinHood? <br> For High Roller!</h2>
+								<p class="slider-one-text">Join us now and experience the world of stock trading with BigBucks <br> Turn Your Financial Dreams Into Reality!</p>
+							</div><!-- /.container -->
+						</div><!-- /.slider-one-content -->
+					</div><!-- /.item -->
+					<div class="item">
+						<div class="slider-one-content">
+							<div class="container">
+								<div class="slider-one-floating-image image-1" style="left: 0; top: -20px;">
+									<img src="static/picture/coin-1.png" alt="">
+								</div>
+								<div class="slider-one-floating-image image-2" style="right: 0; top: -20px;">
+									<img src="static/picture/coin-2.png" alt="">
+								</div>
+								<div class="slider-one-floating-image image-3" style="right: 100%; top: calc(100% - 20px);">
+									<img src="static/picture/coin-3.png" alt="">
+								</div>
+								<div class="slider-one-floating-image image-4" style="left: calc(100% - 50px); bottom: -80px;">
+									<img src="static/picture/rocket.png" alt="">
+								</div>
+								<h2 class="slider-one-title">BigBucks, Best Of The Choice</h2>
+								<p class="slider-one-text"> "A Road To Serfdom?" <br> "A ROAD TO WEALTH FREEDOM!" </p>
+								<div class="slider-one-button">
+                  <a href="{{ url_for('auth.register') }}" class="thm-btn">Get Started NOW</a>
+								</div>
+							</div><!-- /.container -->
+						</div><!-- /.slider-one-content -->
+					</div><!-- /.item -->
+			</div><!-- /.owl-carousel -->
+		</section><!-- /.slider-one -->
+		<section class="coin-details" id="coin">
+			<div class="container">
+				<div class="coin-details-inner">
+					<div class="row gutter-x-20 gutter-y-30">
+						<div class="col-lg-4">
+							<div class="coin-card">
+								<div class="coin-card-meta">
+									<div class="coin-card-name">Apple (AAPL)</div>
+									<h4 class="coin-card-price">$165.21</h4>
+								</div>
+								<div class="coin-card-chart-outer">
+									<div class="coin-card-chart">
+										<canvas class="coin-card-chart-inner"></canvas>
+									</div>
+									<div class="coin-card-difference loss">-0.21% <i class="fas fa-long-arrow-alt-down"></i></div>
+								</div>
+							</div><!-- /.coin-card -->
+						</div>
+						<div class="col-lg-4">
+							<div class="coin-card">
+								<div class="coin-card-meta">
+									<div class="coin-card-name">Microsoft (MSFT)</div>
+									<h4 class="coin-card-price">$286.14</h4>
+								</div>
+								<div class="coin-card-chart-outer">
+									<div class="coin-card-chart">
+										<canvas class="coin-card-chart-inner"></canvas>
+									</div>
+									<div class="coin-card-difference loss">-1.28% <i class="fas fa-long-arrow-alt-down"></i></div>
+								</div>
+							</div><!-- /.coin-card -->
+						</div>
+						<div class="col-lg-4">
+							<div class="coin-card">
+								<div class="coin-card-meta">
+									<div class="coin-card-name">S&P 500 (^GSPC)</div>
+									<h4 class="coin-card-price">$4137.64</h4>
+								</div>
+								<div class="coin-card-chart-outer">
+									<div class="coin-card-chart">
+										<canvas class="coin-card-chart-inner"></canvas>
+									</div>
+									<div class="coin-card-difference loss">-0.21% <i class="fas fa-long-arrow-alt-down"></i></div>
+								</div>
+							</div><!-- /.coin-card -->
+						</div>
+					</div><!-- .row -->
+				</div><!-- ./coin-details-inner -->
+			</div>
+		</section><!-- /.coin-details -->
+
+		<section class="team-one-section" id="team">
+			<div class="container">
+				<div class="team-one-content">
+					<div class="section-title-box text-center">
+						<h2 class="section-title">Meet Our Team M!</h2>
+						<p class="section-title-text">All of our team members are from Duke University, they are all professional and ready to help.</p>
+					</div><!-- /.section-title-box -->
+
+					<div class="row gutter-y-30">
+						<div class="col-lg-3 col-md-6">
+							<div class="team-one-card">
+								<div class="team-one-image">
+									<img src="static/picture/team1.png" class="img-fluid" alt="" height="234">
+								</div><!-- /.team-one-image -->
+								<div class="team-one-meta">
+									<h4 class="team-one-name">Boyuan Zeng</h4>
+									<div class="team-one-designation">Project Structure & Backend</div>
+								</div>
+							</div><!-- /.team-one-card -->
+						</div><!-- /.col -->
+
+						<div class="col-lg-3 col-md-6">
+							<div class="team-one-card">
+								<div class="team-one-image">
+									<img src="static/picture/team4.png" class="img-fluid" alt="" height="234">
+								</div><!-- /.team-one-image -->
+								<div class="team-one-meta">
+									<h4 class="team-one-name">Qing Li</h4>
+									<div class="team-one-designation">Quality Assurance & Backend</div>
+								</div>
+							</div><!-- /.team-one-card -->
+						</div><!-- /.col -->
+
+						<div class="col-lg-3 col-md-6">
+							<div class="team-one-card">
+								<div class="team-one-image">
+									<img src="static/picture/team2.png" class="img-fluid" alt="" height="234">
+								</div><!-- /.team-one-image -->
+								<div class="team-one-meta">
+									<h4 class="team-one-name">Haochen Yang</h4>
+									<div class="team-one-designation">Logistic & Frontend</div>
+								</div>
+							</div><!-- /.team-one-card -->
+						</div><!-- /.col -->
+
+						<div class="col-lg-3 col-md-6">
+							<div class="team-one-card">
+								<div class="team-one-image">
+									<img src="static/picture/team3.png" class="img-fluid" alt=""  height="234">
+								</div><!-- /.team-one-image -->
+								<div class="team-one-meta">
+									<h4 class="team-one-name">Yu Yan</h4>
+									<div class="team-one-designation">Graphic Designer & Frontend</div>
+								</div>
+							</div><!-- /.team-one-card -->              
+						</div><!-- /.col -->
+
+					</div><!-- /.row -->
+				</div><!-- /.team-one-content -->
+			</div>
+		</section><!-- /.team-one-section -->
+
+		<section class="testimonial-three-section" id="testimonial">
+			<div class="testimonial-three-bg-1"></div>
+			<div class="testimonial-three-bg-2"></div>
+			<div class="container">
+				<div class="testimonial-three-content">
+					<div class="section-title-box text-center">
+						<h2 class="section-title">Satified Clients Feedbacks</h2>
+					</div><!-- /.section-title-box -->
+					<div class="testimonial-three-carousel owl-carousel owl-theme">
+						<div class="item">
+							<div class="testimonial-three-card">
+								<div class="testimonial-three-card-upper">
+									<div class="testimonial-three-card-meta">
+										<h5>User A</h5>
+										<span>@Student at Duke University, BME, PhD candidate</span>
+									</div>
+								</div><!-- /.testimonial-three-card-upper -->
+								<div class="testimonial-three-card-bottom">
+									<p class="testimonial-three-card-text">“I've had a great experience with BigBucks. The market - stock comparison is very helpful to decide whether to buy or sell. A few more customization options would be appreciated, though."</p>
+									<div class="testimonial-three-card-rating">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div><!-- /.testimonial-three-card-rating -->
+								</div><!-- /.testimonial-three-card-bottom -->
+							</div><!-- /.testimonial-three-card -->
+						</div>
+						<div class="item">
+							<div class="testimonial-three-card">
+								<div class="testimonial-three-card-upper">
+									<div class="testimonial-three-card-meta">
+										<h5>User B</h5>
+										<span>@Student at Duke Univeristy, ECE</span>
+									</div>
+								</div><!-- /.testimonial-three-card-upper -->
+								<div class="testimonial-three-card-bottom">
+									<p class="testimonial-three-card-text">“BigBucks has been a game-changer for my investment strategy. The analytics features are excellent. A mobile app would make it even better."</p>
+									<div class="testimonial-three-card-rating">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div><!-- /.testimonial-three-card-rating -->
+								</div><!-- /.testimonial-three-card-bottom -->
+							</div><!-- /.testimonial-three-card -->
+						</div>
+						<div class="item">
+							<div class="testimonial-three-card">
+								<div class="testimonial-three-card-upper">
+									<div class="testimonial-three-card-meta">
+										<h5>User C</h5>
+										<span>@Student at Columbia University, MSBA</span>
+									</div>
+								</div><!-- /.testimonial-three-card-upper -->
+								<div class="testimonial-three-card-bottom">
+									<p class="testimonial-three-card-text">“BigBucks has made trading easy with its user-friendly platform. It would be great to have a feature that enables setting custom price alerts for stocks."</p>
+									<div class="testimonial-three-card-rating">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div><!-- /.testimonial-three-card-rating -->
+								</div><!-- /.testimonial-three-card-bottom -->
+							</div><!-- /.testimonial-three-card -->
+						</div>
+						<div class="item">
+							<div class="testimonial-three-card">
+								<div class="testimonial-three-card-upper">
+									<div class="testimonial-three-card-meta">
+										<h5>User D</h5>
+										<span>@Hedge fund manager</span>
+									</div>
+								</div><!-- /.testimonial-three-card-upper -->
+								<div class="testimonial-three-card-bottom">
+									<p class="testimonial-three-card-text">“The analytics tools on BigBucks are impressive. It would be even better if they provided personalized recommendations based on individual risk tolerance and investment goals."</p>
+									<div class="testimonial-three-card-rating">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div><!-- /.testimonial-three-card-rating -->
+								</div><!-- /.testimonial-three-card-bottom -->
+							</div><!-- /.testimonial-three-card -->
+						</div>
+						<div class="item">
+							<div class="testimonial-three-card">
+								<div class="testimonial-three-card-upper">
+									<div class="testimonial-three-card-meta">
+										<h5>User E</h5>
+										<span>@Individual investor</span>
+									</div>
+								</div><!-- /.testimonial-three-card-upper -->
+								<div class="testimonial-three-card-bottom">
+									<p class="testimonial-three-card-text">“BigBucks' reporting features are top-notch. To enhance the platform, they could offer more advanced tax optimization strategies and tools for long-term investors."</p>
+									<div class="testimonial-three-card-rating">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div><!-- /.testimonial-three-card-rating -->
+								</div><!-- /.testimonial-three-card-bottom -->
+							</div><!-- /.testimonial-three-card -->
+						</div>
+						<div class="item">
+							<div class="testimonial-three-card">
+								<div class="testimonial-three-card-upper">
+									<div class="testimonial-three-card-meta">
+										<h5>User F</h5>
+										<span>@An Unknown SpongeBob SquarePants</span>
+									</div>
+								</div><!-- /.testimonial-three-card-upper -->
+								<div class="testimonial-three-card-bottom">
+									<p class="testimonial-three-card-text">"BigBucks is a fintastic way to trade stocks, me mateys! I'd love to sea some coral-ful themes to brighten up the interface, though. Keep up the great work, barnacles!"</p>
+									<div class="testimonial-three-card-rating">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div><!-- /.testimonial-three-card-rating -->
+								</div><!-- /.testimonial-three-card-bottom -->
+							</div><!-- /.testimonial-three-card -->
+						</div>
+					</div><!-- /.testimonial-three-carousel -->
+				</div><!-- /.testimonial-three-content -->
+			</div>
+		</section><!-- /.testimonial-three-section -->
+
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<svg class="scroll-to-top-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</a>
+	</div><!-- /.page-wrapper -->
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/owl.carousel.min.js"></script>
+<script src="static/js/chart.js"></script>
+<script src="static/js/jquery.singlePageNav.min.js"></script>
+<script src="static/js/theme.js"></script>
+</body>
+</html>
+

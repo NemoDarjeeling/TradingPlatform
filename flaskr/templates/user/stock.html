@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Stock Page - BigBucks</title>
+        
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/css2.css') }}">
+    
+    
+        <link rel="manifest" href="{{ url_for('static', filename='image/site.webmanifest') }}">
+    
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    
+        <!-- <style>
+            body {
+                background-color: rgb(50, 14, 147);
+            }
+        </style> -->
+    </head>
+<body class="home-one">
+	<div class="preloader">
+		<div class="preloader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div><!-- /.preloader -->
+	<div class="page-wrapper">
+		<header class="main-menu header-three thm-sticky-header">
+			<div class="container">
+				<nav class="main-menu-inner">
+					<div class="main-menu-logo">
+						<a href="#"><img src="{{ url_for('static', filename='picture/bbLogo1.png') }}" alt="logo" width="240"></a>
+					</div>
+					<div class="main-menu-right">
+						<div class="mobile-menu-toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<a href="{{ url_for('user.index') }}" class="thm-btn thm-btn-outline" >Back</a>            
+					</div><!-- /.main-menu-right -->
+				</nav>
+			</div>
+		</header><!-- /.header -->
+		<div class="login-page">
+			<div class="container">
+				<section class="about-four-section" id="about">
+                    <div class="container">
+                        <div class="section-title-box text-center">
+                            <h2 class="section-title">My Stocks Overview</h2>
+                        </div><!-- /.section-title-box -->
+                        <div class="crypto-tabs">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="all">
+                                    <div class="crypto-price-table-wrapper table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th>Stock Name</th>
+                                                <th>Shares Owned</th>
+                                                <th>Current Price</th>
+                                                <th>Daily Return</th>
+                                            </tr>
+                                            {% for stock in stocks %}
+                                            <tr>
+                                                <td class="crypto-name"><a href="{{ url_for('stock.detail',symbol=stock[0])}}">{{ stock[0]}}</a></td>
+                                                <td class="crypto-max">{{ stock[1]}}</td>
+                                                <td class="crypto-price">{{ stock[2]}}</td>
+                                                <td class="crypto-price">{{ stock[3]}}%</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div><!-- /.crypto-price-table-wrapper -->
+                                </div><!-- /.tab-pane -->
+                            </div>
+                        </div><!-- /.crypto-tabs -->
+                    </div><!-- /.container -->
+                </section><!-- /.about-three-section -->
+			</div><!-- /.container -->
+		</div><!-- /.login-page -->
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<svg class="scroll-to-top-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</a>
+	</div><!-- /.page-wrapper -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.appear.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.singlePageNav.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

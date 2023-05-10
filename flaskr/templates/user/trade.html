@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Buy&Sell - BigBucks</title>
+	<style>
+	.input-group input {
+  	display: inline-block;
+  	width: calc(27% - 5px); /* subtracting margin and padding from the width */
+  	margin-right: 5px;
+	}	
+	</style>
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css24.css') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='image/site.webmanifest') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+</head>
+<body class="home-six">
+	<div class="preloader">
+		<div class="preloader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div><!-- /.preloader -->
+	<div class="page-wrapper">
+		<header class="main-menu header-six thm-sticky-header">
+			<div class="container">
+				<nav class="main-menu-inner">
+					<div class="main-menu-logo">
+						<a href="javascript:;"><img src="{{ url_for('static', filename='picture/bbLogo1.png') }}" alt="logo" width="240"></a>
+					</div>
+					<div class="main-menu-right">
+						<div class="mobile-menu-toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+            	<a href="{{ url_for('user.index') }}" class="thm-btn">Back</a>
+					</div><!-- /.main-menu-right -->
+				</nav>
+			</div>
+		</header><!-- /.main-menu -->
+		<section class="slider-six-section">
+			<div class="slider-six-swiper owl-carousel owl-theme">
+				<div class="item">
+					<div class="slider-six-content">
+						<div class="container">
+							<div class="row justify-content-between gutter-y-60">
+								<div class="col-lg-5">
+									<div class="contact-five">
+										<div class="section-title-box">
+											<h2 class="section-title">Buy & Sell Stocks</h2>
+											<p id="balance" style="color: rgb(153, 146, 227);">Current Balance: {{ g.user['credit'] }}</p>
+										</div><!-- /.section-title-box -->
+										<form id = "stock-form" class="contact-five-form" action="{{ url_for('user.trade') }}" method="post">
+											<div class="form-group">
+												<label style="color: rgb(240, 195, 126);" for="admin">Historical Trading</label>
+												<input type="checkbox" name="his" id="his">
+											</div>
+											<div class="input-group" id="admin-password" style="display: none;">
+												<input type="number" name="year" id = "year" placeholder="Year*" class="thm-form-control">
+												<input type="number" name="month" id = "month" placeholder="Month*" class="thm-form-control">
+												<input type="number" name="day" id = "day" placeholder="Date*" class="thm-form-control">
+											</div>
+											<p></p>
+											<p></p>
+											<p></p>
+											<div class="form-group">
+												<label for="symbol">Company Symbol:</label>
+												<p></p>
+												<input type="text" name="symbol" id="symbol" placeholder="Enter the company symbol here*" class="thm-form-control" required="">
+											</div><!-- /.form-group -->
+											<div class="form-group">
+												<label for="type">Buy or Sell:</label>
+												<p></p>
+												<select id="type" name="type" class="thm-form-control">
+												  <option value="buy">Buy</option>
+												  <option value="sell">Sell</option>
+												</select>
+											</div><!-- /.form-group -->
+											<div class="form-group">
+												<label for="shares">Number of Shares:</label>
+												<p></p>
+												<input type="number" id="shares" name="shares" placeholder="Enter the number of stocks here*" class="thm-form-control" required="">
+											</div><!-- /.form-group -->
+											<div class="form-group contact-four-button">
+												<button onlick="submit()" type="submit" class="thm-btn">Submit</button>
+											</div><!-- /.form-group -->
+											<p>Total price: $<span id="total-price">0</span></p>
+											<div class="form-group">
+													{% for message in get_flashed_messages() %}
+													<div class="flash" style="color: rgb(240, 118, 118);">Notice during trading: {{ message }}</div>
+													{% endfor %}
+											</div><!-- /.login-options -->
+										</form>
+									</div><!-- /.contact-five -->
+								</div><!-- /.col -->
+							</div>
+							<div class="slider-six-bg">
+								<div class="slider-six-shape-2"></div>
+								<div class="slider-six-card">
+									<div class="slider-six-card-line"></div>
+									<div class="slider-six-card-upper">
+										<div class="slider-six-card-bank">
+											<img src="{{ url_for('static', filename='picture/chip-1-1.png') }}" alt="">
+                      
+											<div class="slider-six-card-bank-name">Bank of TeaM</div>
+										</div>
+										<div class="slider-six-card-logo">
+											<span></span>
+											<span></span>
+										</div>
+									</div><!-- /.slider-six-card-upper -->
+									<div class="slider-six-card-lower">
+										<div class="slider-six-card-owner">
+											<h3 class="slider-six-card-number">0452  7593  9875  1795</h3>
+											<div class="slider-six-card-name">TeaM</div>
+										</div>
+										<div class="slider-six-card-icon"><img src="{{ url_for('static', filename='picture/chip-1-1.png') }}" alt=""></div>
+									</div><!-- /.slider-six-card-lower -->
+								</div><!-- /.slider-six-card -->
+							</div><!-- /.slider-six-bg -->
+						</div>
+					</div><!-- /.slider-six-content -->
+				</div><!-- /.item -->		
+			</div><!-- /.slider-five-swiper -->
+		</section><!-- /.slider-six-section -->
+		<section class="service-two-section" id="service">
+			<div class="container">
+				<div class="service-two-inner">
+					<div class="section-title-box text-center">
+						<h2 class="section-title">Benefits to trade in BigBucks</h2>
+					</div><!-- /.section-title-box -->
+					<div class="row gutter-x-20 gutter-y-20">
+						<div class="col-xl-4 col-lg-6">
+							<div class="service-two-card">
+								<div class="service-two-icon">
+									<svg width="74" height="52" viewbox="0 0 74 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M69.1875 1.8125H4.6875C3.20323 1.8125 2 3.01573 2 4.5V47.5C2 48.9843 3.20323 50.1875 4.6875 50.1875H69.1875C70.6718 50.1875 71.875 48.9843 71.875 47.5V4.5C71.875 3.01573 70.6718 1.8125 69.1875 1.8125Z" stroke="#FF3DB7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M50.375 39.4375H61.125" stroke="#FF3DB7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M34.25 39.4375H39.625" stroke="#FF3DB7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M2 15.5522H71.875" stroke="#FF3DB7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div><!-- /.service-two-icon -->
+								<h3 class="service-two-title">Flexible payment</h3>
+								<p class="service-two-text">Our platform offers a variety of convenient payment methods, allowing you to choose the one that best suits your needs, we accept them all</p>
+							</div><!-- /.service-two-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="service-two-card">
+								<div class="service-two-icon">
+									<svg width="88" height="88" viewbox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M44 27.5V44" stroke="#FF1B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M58.3 52.25L44 44" stroke="#FF1B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M24.6816 34.272H10.9316V20.522" stroke="#FF1B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M22.6191 65.3813C26.8487 69.6143 32.2387 72.4978 38.1073 73.667C43.9759 74.8362 50.0594 74.2386 55.5883 71.9497C61.1172 69.6609 65.8431 65.7837 69.1681 60.8086C72.4931 55.8335 74.2678 49.984 74.2678 44C74.2678 38.0161 72.4931 32.1666 69.1681 27.1915C65.8431 22.2163 61.1172 18.3391 55.5883 16.0503C50.0594 13.7615 43.9759 13.1639 38.1073 14.3331C32.2387 15.5023 26.8487 18.3858 22.6191 22.6188L10.9316 34.2719" stroke="#FF1B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div><!-- /.service-two-icon -->
+								<h3 class="service-two-title">Transaction history</h3>
+								<p class="service-two-text">Easily track your trading activity with our comprehensive transaction history feature, providing you with a clear overview of your past trades</p>
+							</div><!-- /.service-two-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="service-two-card">
+								<div class="service-two-icon">
+									<svg width="82" height="82" viewbox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M61.5 64.0625V71.75" stroke="#FFB355" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M20.5 64.0625V71.75" stroke="#FFB355" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M69.1875 15.375H12.8125C11.3973 15.375 10.25 16.5223 10.25 17.9375V61.5C10.25 62.9152 11.3973 64.0625 12.8125 64.0625H69.1875C70.6027 64.0625 71.75 62.9152 71.75 61.5V17.9375C71.75 16.5223 70.6027 15.375 69.1875 15.375Z" stroke="#FFB355" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M48.6875 46.125C51.518 46.125 53.8125 43.8305 53.8125 41C53.8125 38.1695 51.518 35.875 48.6875 35.875C45.857 35.875 43.5625 38.1695 43.5625 41C43.5625 43.8305 45.857 46.125 48.6875 46.125Z" fill="#FFB355"></path>
+										<path d="M48.6875 41H71.75" stroke="#FFB355" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M48.6875 53.8125C55.7636 53.8125 61.5 48.0761 61.5 41C61.5 33.9239 55.7636 28.1875 48.6875 28.1875C41.6114 28.1875 35.875 33.9239 35.875 41C35.875 48.0761 41.6114 53.8125 48.6875 53.8125Z" stroke="#FFB355" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div><!-- /.service-two-icon -->
+								<h3 class="service-two-title">Secure & insured</h3>
+								<p class="service-two-text">With advanced security measures and insurance coverage, our platform ensures the safety of your assets and peace of mind while trading</p>
+							</div><!-- /.service-two-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="service-two-card">
+								<div class="service-two-icon">
+									<svg width="88" height="88" viewbox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M79.75 22H8.25C6.73122 22 5.5 23.2312 5.5 24.75V63.25C5.5 64.7688 6.73122 66 8.25 66H79.75C81.2688 66 82.5 64.7688 82.5 63.25V24.75C82.5 23.2312 81.2688 22 79.75 22Z" stroke="#53FF8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M44 55C50.0751 55 55 50.0751 55 44C55 37.9249 50.0751 33 44 33C37.9249 33 33 37.9249 33 44C33 50.0751 37.9249 55 44 55Z" stroke="#53FF8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M60.5 22L82.5 41.25" stroke="#53FF8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M60.5 66L82.5 46.75" stroke="#53FF8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M27.5 22L5.5 41.25" stroke="#53FF8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M27.5 66L5.5 46.75" stroke="#53FF8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div><!-- /.service-two-icon -->
+								<h3 class="service-two-title">Best prices</h3>
+								<p class="service-two-text">We provide the most competitive prices by sourcing liquidity from multiple exchanges, ensuring you get the best value for you</p>
+							</div><!-- /.service-two-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="service-two-card">
+								<div class="service-two-icon">
+									<svg width="76" height="76" viewbox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M67.6875 61.75H8.3125" stroke="#6865FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M29.6875 61.75V26.125H46.3125" stroke="#6865FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M62.9375 11.875H46.3125V61.75H62.9375V11.875Z" stroke="#6865FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M13.0625 61.75V40.375H29.6875" stroke="#6865FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div><!-- /.service-two-icon -->
+								<h3 class="service-two-title">No trading fees</h3>
+								<p class="service-two-text">Enjoy commission-free trading on our platform, maximizing your returns and allowing you to keep more of your profits</p>
+							</div><!-- /.service-two-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="service-two-card">
+								<div class="service-two-icon">
+									<svg width="74" height="74" viewbox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M37 20.8125V25.4375" stroke="#31E8DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M37 48.5625V53.1875" stroke="#31E8DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M37 64.75C52.3259 64.75 64.75 52.3259 64.75 37C64.75 21.6741 52.3259 9.25 37 9.25C21.6741 9.25 9.25 21.6741 9.25 37C9.25 52.3259 21.6741 64.75 37 64.75Z" stroke="#31E8DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+										<path d="M30.0625 48.5625H40.4688C42.002 48.5625 43.4725 47.9534 44.5567 46.8692C45.6409 45.785 46.25 44.3145 46.25 42.7812C46.25 41.248 45.6409 39.7775 44.5567 38.6933C43.4725 37.6091 42.002 37 40.4688 37H33.5312C31.998 37 30.5275 36.3909 29.4433 35.3067C28.3591 34.2225 27.75 32.752 27.75 31.2188C27.75 29.6855 28.3591 28.215 29.4433 27.1308C30.5275 26.0466 31.998 25.4375 33.5312 25.4375H43.9375" stroke="#31E8DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div><!-- /.service-two-icon -->
+								<h3 class="service-two-title">No transaction limit</h3>
+								<p class="service-two-text">Trade without any restrictions, as our platform imposes no limits on the size or frequency of transactions</p>
+							</div><!-- /.service-two-card -->
+						</div><!-- /.col -->
+					</div>
+				</div>
+			</div>
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<svg class="scroll-to-top-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</a>
+	</div><!-- /.page-wrapper -->
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+<script src="{{ url_for('static', filename='js/jquery.appear.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/counter.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.singlePageNav.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+<script src="https://cdn.plot.ly/plotly-2.15.0.min.js"></script>
+<script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
+<script>
+	const inputContainer = document.getElementById('admin-password');
+	const stockForm = document.querySelector('#stock-form');
+	const Checkbox = document.querySelector('#his');
+	const symbols = document.getElementById('symbol');
+	const share = document.getElementById('shares');
+	const historyCheckbox = document.getElementById('his');
+  	const totalPriceSpan = document.getElementById('total-price');
+	const ye = document.querySelector('#year');
+	const mo = document.querySelector('#month');
+	const da = document.querySelector('#day');
+	data = NaN;
+
+const updateTotalPrice = async () => {
+	const symbol = symbols.value;
+	const shares = parseInt(share.value);
+	const includeHistory = historyCheckbox.checked;
+    success = false
+  if (symbol && shares) {
+	console.log("1");
+  if (includeHistory) {
+	const year = ye.value;
+	const month = mo.value;
+	const day = da.value;
+	
+	if(year && month && day){
+	const response = await fetch('/user/get_stock_price',{
+		method: 'POST',
+		body: JSON.stringify({symbol:symbol, include_history:includeHistory, year:year, month:month, day:day}),
+		headers: {
+		  'Content-Type': 'application/json'
+		}})
+	data = await response.json();
+	console.log(data)	
+	success = data[0].success;
+	}
+  } else{
+	const response = await fetch('/user/get_stock_price',{
+		method: 'POST',
+		body: JSON.stringify({symbol:symbol, include_history:includeHistory}),
+		headers: {
+		  'Content-Type': 'application/json'
+		}})
+	data = await response.json();	
+	success = data[0].success;
+}
+	if (success){
+		const price = data[0].price;
+		const totalPrice = shares * price;
+  		totalPriceSpan.textContent = totalPrice.toFixed(2);
+	}
+}
+};
+
+stockForm.addEventListener('input', updateTotalPrice);
+
+	
+	Checkbox.addEventListener('change', function() {
+	  if (this.checked) {
+		console.log(document.getElementById('symbol').value)
+	  inputContainer.style.display = 'block';
+	  } else {
+		inputContainer.style.display = 'none';
+	  }
+	});
+</script>
+
+</body>
+</html>

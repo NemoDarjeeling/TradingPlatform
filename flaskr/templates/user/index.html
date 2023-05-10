@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Main Page - BigBucks</title>
+	
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/css2.css') }}">
+
+
+	<link rel="manifest" href="{{ url_for('static', filename='image/site.webmanifest') }}">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+  	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+  	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+</head>
+<body class="home-three">
+	<div class="preloader">
+		<div class="preloader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div><!-- /.preloader -->
+	<div class="page-wrapper">
+		<header class="main-menu header-three thm-sticky-header">
+			<div class="container">
+				<nav class="main-menu-inner">
+					<div class="main-menu-logo">
+						<a href="#"><img src="{{ url_for('static', filename='picture/bbLogo1.png') }}" alt="logo" width="240"></a>
+					</div>
+          <span>
+            <input id="symbol" placeholder="Stock Performance Search*" class="thm-form-control" style="width: 300px;">
+            <input type="button" value="Go" onclick="godetail()" class="thm-btn">
+          </span>
+					<div class="main-menu-right">
+						<div class="mobile-menu-toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+            			<a href="{{ url_for('user.trade') }}" class="thm-btn thm-btn-outline" style="color: rgb(239, 224, 85)">Start Trading</a>
+						<a href="{{ url_for('auth.logout') }}" class="thm-btn thm-btn-outline" >Log Out</a>            
+					</div><!-- /.main-menu-right -->
+				</nav>
+			</div>
+		</header><!-- /.header -->
+		<section class="slider-three">
+			<div class="owl-carousel owl-theme slider-three-swiper">
+				<div class="item">
+					<div class="slider-three-content">
+						<div class="slider-three-shape-4"></div><!-- /.slider-three-shape-4 -->
+						<div class="slider-three-shape-5"></div><!-- /.slider-three-shape-5 -->
+						<div class="slider-three-bg">
+							<div class="slider-three-bg-inner">	
+								<div class="slider-three-shape-7"></div>
+								<img src="{{ url_for('static', filename='picture/banner-2-1.png') }}" alt="" class="slider-three-bg-image">
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-7">
+									<div class="slider-three-content-inner">
+										<h2 class="slider-three-title">Greetings, {{ g.user['username'] }}!</h2>
+										<p class="slider-three-text">"Be prepare for a financial trip with the stocks <br> ...and your very own road to wealth freedom!"</p>
+									</div><!-- /.slider-three-content-inner -->
+								</div><!-- /.col -->
+							</div><!-- /.row -->
+						</div><!-- /.container -->
+					</div><!-- /.slider-three-content -->
+				</div><!-- /.item -->
+        <div class="item">
+					<div class="slider-three-content">
+						<div class="slider-three-shape-4"></div><!-- /.slider-three-shape-4 -->
+						<div class="slider-three-shape-5"></div><!-- /.slider-three-shape-5 -->
+						<div class="slider-three-bg">
+							<div class="slider-three-bg-inner">	
+								<div class="slider-three-shape-7"></div>
+								<img src="{{ url_for('static', filename='picture/banner-2-1.png') }}" alt="" class="slider-three-bg-image">
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-7">
+									<div class="slider-three-content-inner">
+										<h2 class="slider-three-title">What are you trying to seek today, valiant financial hunter?</h2>
+										<p class="slider-three-text">"Input the stock you are interested above and start the journey!<br> ...Or probably you want to scroll down to see how far you have went?"</p>
+									</div><!-- /.slider-three-content-inner -->
+								</div><!-- /.col -->
+							</div><!-- /.row -->
+						</div><!-- /.container -->
+					</div><!-- /.slider-three-content -->
+				</div><!-- /.item -->
+			</div>
+			<div class="feature-three-content-outer">
+				<div class="container">
+					<div class="feature-three-content">
+						<div class="row gutter-y-60 gutter-x-60">
+							<div class="col-xl-4">
+								<div class="feature-three-card">
+									<div class="feature-three-icon">
+										<svg width="41" height="62" viewbox="0 0 41 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<rect x="0.75" y="0.75" width="39.5" height="60.4556" rx="5.25" stroke="white" stroke-width="1.5"></rect>
+											<rect x="4.55554" y="4.55566" width="31.8889" height="44.6444" rx="2" fill="white"></rect>
+											<circle cx="20.0449" cy="55.5776" r="2.73333" fill="white"></circle>
+										</svg>
+									</div><!-- /.feature-three-icon -->
+									<div class="feature-three-card-content">
+										<h4 class="feature-three-card-title">Convenience</h4>
+										<div class="feature-three-card-text">BigBucks delivers a convenient platform, streamlining trading and portfolio management for users.</div>
+									</div><!-- /.feature-three-card-content -->
+								</div><!-- /.feature-three-card -->
+							</div><!-- /.col -->
+							<div class="col-xl-4">
+								<div class="feature-three-card">
+									<div class="feature-three-icon">
+										<svg width="50" height="52" viewbox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M42.5 4H7.5C6.57174 4 5.6815 4.36315 5.02513 5.00956C4.36875 5.65598 4 6.5327 4 7.44687V20.0926C4 39.352 20.5812 45.7502 23.9062 46.8274C24.6167 47.0575 25.3833 47.0575 26.0938 46.8274C29.4188 45.7502 46 39.352 46 20.0926V7.44687C46 6.5327 45.6312 5.65598 44.9749 5.00956C44.3185 4.36315 43.4283 4 42.5 4ZM35.8281 19.037L23.0094 31.101C22.678 31.408 22.2394 31.5777 21.7844 31.575C21.3361 31.5766 20.9047 31.4067 20.5813 31.101L14.1719 25.069C13.9941 24.9163 13.8495 24.7297 13.7468 24.5205C13.6441 24.3113 13.5855 24.0839 13.5743 23.8518C13.5632 23.6197 13.5998 23.3878 13.682 23.17C13.7641 22.9522 13.8902 22.7531 14.0525 22.5845C14.2148 22.4159 14.4101 22.2813 14.6266 22.189C14.8431 22.0966 15.0763 22.0483 15.3122 22.0469C15.5481 22.0456 15.7819 22.0912 15.9994 22.1811C16.217 22.271 16.4138 22.4033 16.5781 22.57L21.7844 27.4603L33.4219 16.538C33.7621 16.2456 34.204 16.0941 34.6551 16.1151C35.1061 16.1362 35.5315 16.3281 35.8422 16.6508C36.1529 16.9735 36.3249 17.402 36.3223 17.8467C36.3197 18.2914 36.1426 18.7179 35.8281 19.037Z" fill="white"></path>
+											<path d="M25.4753 51.1609L25.4628 51.165L25.4506 51.1695C25.1599 51.2768 24.8401 51.2768 24.5494 51.1695L24.5372 51.165L24.5247 51.1609C20.5293 49.8428 0.75 42.1338 0.75 18.8861V2.2652C0.75 1.86415 0.909824 1.47902 1.19512 1.19467C1.48049 0.910239 1.86807 0.75 2.27273 0.75H47.7273C48.1319 0.75 48.5195 0.91024 48.8049 1.19467C49.0902 1.47902 49.25 1.86415 49.25 2.2652V18.8861C49.25 42.1338 29.4707 49.8428 25.4753 51.1609Z" stroke="white" stroke-width="1.5"></path>
+										</svg>
+									</div><!-- /.feature-three-icon -->
+									<div class="feature-three-card-content">
+										<h4 class="feature-three-card-title">Insurance</h4>
+										<div class="feature-three-card-text">BigBucks ensures users' investments are protected through comprehensive insurance coverage.</div>
+									</div><!-- /.feature-three-card-content -->
+								</div><!-- /.feature-three-card -->
+							</div><!-- /.col -->
+							<div class="col-xl-4">
+								<div class="feature-three-card">
+									<div class="feature-three-icon">
+										<svg width="44" height="52" viewbox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M43.425 14.575L29.425 0.575032C29.044 0.203587 28.5321 -0.00296767 28 3.22253e-05H4C2.93913 3.22253e-05 1.92172 0.421459 1.17157 1.17161C0.421427 1.92175 0 2.93917 0 4.00003V26C0 26.5305 0.210714 27.0392 0.585787 27.4143C0.96086 27.7893 1.46957 28 2 28C2.53043 28 3.03914 27.7893 3.41421 27.4143C3.78929 27.0392 4 26.5305 4 26V4.00003H26V16C26 16.5305 26.2107 17.0392 26.5858 17.4142C26.9609 17.7893 27.4696 18 28 18H40V48H32C31.4696 48 30.9609 48.2107 30.5858 48.5858C30.2107 48.9609 30 49.4696 30 50C30 50.5305 30.2107 51.0392 30.5858 51.4143C30.9609 51.7893 31.4696 52 32 52H40C41.0609 52 42.0783 51.5786 42.8284 50.8285C43.5786 50.0783 44 49.0609 44 48V16C44.003 15.4679 43.7964 14.956 43.425 14.575V14.575ZM30 6.82503L37.175 14H30V6.82503ZM22 37H20V36C20 34.1435 19.2625 32.363 17.9497 31.0503C16.637 29.7375 14.8565 29 13 29C11.1435 29 9.36301 29.7375 8.05025 31.0503C6.7375 32.363 6 34.1435 6 36V37H4C3.46957 37 2.96086 37.2107 2.58579 37.5858C2.21071 37.9609 2 38.4696 2 39V50C2 50.5305 2.21071 51.0392 2.58579 51.4143C2.96086 51.7893 3.46957 52 4 52H22C22.5304 52 23.0391 51.7893 23.4142 51.4143C23.7893 51.0392 24 50.5305 24 50V39C24 38.4696 23.7893 37.9609 23.4142 37.5858C23.0391 37.2107 22.5304 37 22 37ZM16 37H10V36C10 35.2044 10.3161 34.4413 10.8787 33.8787C11.4413 33.3161 12.2044 33 13 33C13.7956 33 14.5587 33.3161 15.1213 33.8787C15.6839 34.4413 16 35.2044 16 36V37Z" fill="white"></path>
+										</svg>
+									</div><!-- /.feature-three-icon -->
+									<div class="feature-three-card-content">
+										<h4 class="feature-three-card-title">Security</h4>
+										<div class="feature-three-card-text">BigBucks prioritizes security by implementing advanced measures to safeguard users' information and assets</div>
+									</div><!-- /.feature-three-card-content -->
+								</div><!-- /.feature-three-card -->
+							</div><!-- /.col -->
+						</div>
+					</div><!-- /.feature-three-content -->
+				</div>
+			</div>
+		</section><!-- /.slider-three -->
+
+		<section class="about-four-section" id="about">
+			<div class="container">
+				<div class="section-title-box text-center">
+					<h2 class="section-title">Manage My Investment</h2>
+				</div><!-- /.section-title-box -->
+				<div class="row gutter-y-60">
+					<div class="col-lg-6">
+						<ul class="about-four-list list-unstyled">
+							<li class="about-four-list-item">
+								<h3 class="about-four-list-title">View My Stocks</h3>
+								<p></p>
+								<p></p>
+								<a href="{{ url_for('user.stock') }}" class="thm-btn">Click to view</a>
+							</li>
+							<li class="about-four-list-item">
+								<h3 class="about-four-list-title">View My Portfolio</h3>
+								<p></p>
+								<p></p>
+								<a href="{{ url_for('stock.ef') }}" class="thm-btn">Click to view</a>
+							</li>
+              <li class="about-four-list-item">
+								<h3 class="about-four-list-title">Manage My Money</h3>
+								<p></p>
+								<p></p>
+								<a href="{{ url_for('user.deposit') }}" class="thm-btn">Deposit</a>
+                <a href="{{ url_for('user.withdraw') }}" class="thm-btn">Withdraw</a>
+							</li>
+						</ul>
+					</div><!-- /.col -->
+					<div class="col-lg-6">
+						<div class="about-four-omage-outer">
+							<div class="about-four-image">
+								<img src="{{ url_for('static', filename='picture/about-2-1.png') }}" class="img-fluid" alt="">
+                
+							</div>
+						</div>
+					</div><!-- /.col -->
+				</div>
+			</div>
+		</section><!-- /.about-four-section -->
+		
+		<section class="about-four-section" id="about">
+			<div class="container">
+				<div class="section-title-box text-center">
+					<h2 class="section-title">Financial News Overview</h2>
+				</div><!-- /.section-title-box -->
+				<div class="blog-three-content">
+					<div class="row gutter-x-40 gutter-y-40">
+						<div class="col-xl-6">
+							<div class="blog-three-card">
+								<div class="blog-three-card-image">
+									<img src="{{ url_for('static', filename='picture/fn2.png') }}" class="img-fluid" alt="">                 
+								</div><!-- /.blog-three-card-image -->
+								<div class="blog-three-card-content">
+									<ul class="blog-three-card-meta list-unstyled">
+										<li class="blog-three-card-meta-item author-name"><a href="#">Lananh Nguyen</a></li>
+										<li class="blog-three-card-meta-item blog-date"><a href="#">April 14, 2023</a></li>
+									</ul>
+									<h3 class="blog-three-card-title"><a href="https://finance.yahoo.com/news/citigroup-bets-ex-bofa-exec-221056159.html">Citigroup bets on ex-BofA executive</a></h3>
+									<p class="blog-three-card-text">NEW YORK (Reuters) - Citigroup Inc's hiring of Andy Sieg, the incoming head of its wealth management unit, underscores the lender's ambitions in the business as well as the uphill climb it faces in gaining share in a competitive market.</p>
+                </div><!-- /.blog-three-card-contnt -->
+							</div><!-- /.blog-three-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-6">
+							<div class="blog-three-card">
+								<div class="blog-three-card-image">
+									<img src="{{ url_for('static', filename='picture/fn1.png') }}" class="img-fluid" alt="">
+                  
+								</div><!-- /.blog-three-card-image -->
+								<div class="blog-three-card-content">
+									<ul class="blog-three-card-meta list-unstyled">
+										<li class="blog-three-card-meta-item author-name"><a href="#">Mehnaz Yasmin</a></li>
+										<li class="blog-three-card-meta-item blog-date"><a href="#">April 14, 2023</a></li>
+									</ul>
+									<h3 class="blog-three-card-title"><a href="https://finance.yahoo.com/news/jpmorgan-amasses-deposits-customers-move-184619897.html">JPMorgan amasses deposits</a></h3>
+									<p class="blog-three-card-text">(Reuters) - JPMorgan Chase & Co on Friday reported a surge in deposits in the first quarter, as the sudden collapse of two U.S. regional banks in March drove customers to move their money to bigger lenders.</p>
+								</div><!-- /.blog-three-card-contnt -->
+							</div><!-- /.blog-three-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-6">
+							<div class="blog-three-card">
+								<div class="blog-three-card-image">
+									<img src="{{ url_for('static', filename='picture/fn3.png') }}" class="img-fluid" alt="">                 
+								</div><!-- /.blog-three-card-image -->
+								<div class="blog-three-card-content">
+									<ul class="blog-three-card-meta list-unstyled">
+										<li class="blog-three-card-meta-item author-name"><a href="#">Matt Tracy </a></li>
+										<li class="blog-three-card-meta-item blog-date"><a href="#">April 14, 2023</a></li>
+									</ul>
+									<h3 class="blog-three-card-title"><a href="https://finance.yahoo.com/news/u-banks-highlight-office-real-173323472.html">U.S. banks highlight office real estate</a></h3>
+									<p class="blog-three-card-text">(Reuters) - Some of the largest U.S. banks singled out office commercial real estate on Friday as an area of growing concern, with property values falling and more borrowers defaulting on their loans amid rising interest rates and a slowing economy.</p>
+								</div><!-- /.blog-three-card-contnt -->
+							</div><!-- /.blog-three-card -->
+						</div><!-- /.col -->
+						<div class="col-xl-6">
+							<div class="blog-three-card">
+								<div class="blog-three-card-image">
+									<img src="{{ url_for('static', filename='picture/fn4.png') }}" class="img-fluid" alt="">
+								</div><!-- /.blog-three-card-image -->
+								<div class="blog-three-card-content">
+									<ul class="blog-three-card-meta list-unstyled">
+										<li class="blog-three-card-meta-item author-name"><a href="#">Katanga Johnson</a></li>
+										<li class="blog-three-card-meta-item blog-date"><a href="#">April 14, 2023</a></li>
+									</ul>
+									<h3 class="blog-three-card-title"><a href="https://finance.yahoo.com/news/fed-bowman-says-bank-regulations-170000550.html">Fed's Bowman Says Bank Regulations Are Not to Blame</a></h3>
+									<p class="blog-three-card-text">(BloomBerg) - Bowman, who was appointed to the central bank by President Donald Trump, is the latest official to weigh in on the causes of the failures of Silicon Valley Bank, SVB, and Signature Bank. Her comments appear to contrast with those of Michael Barr, the Fed’s top bank regulator, who recently said that supervisors could have done more to keep tabs on SVB before it collapsed.</p>
+								</div><!-- /.blog-three-card-contnt -->
+							</div><!-- /.blog-three-card -->
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.blog-three-content -->
+			</div><!-- /.container -->
+		</section><!-- /.blog-single-page -->
+
+		<section class="about-four-section" id="about">
+			<div class="container">
+				<div class="section-title-box text-center">
+					<h2 class="section-title">Popular Companies to Invest</h2>
+				</div><!-- /.section-title-box -->
+				<div class="crypto-tabs">
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="all">
+							<div class="crypto-price-table-wrapper table-responsive">
+								<table class="table">
+									<tr>
+										<th>#</th>
+										<th>Name</th>
+										<th>Last Price</th>
+										<th>24h Change</th>
+										<th>Market Cap</th>
+									</tr>
+									<tr>
+										<td class="crypto-number">1</td>
+										<td class="crypto-name"><a href="https://www.google.com/finance/quote/MSFT:NASDAQ">Microsoft <span>(MSFT)</span></a></td>
+										<td class="crypto-price">$86.14</td>
+										<td class="crypto-change loss">-1.28%</td>
+										<td class="crypto-max">$2.2 trillion</td>
+									</tr>
+									<tr>
+										<td class="crypto-number">2</td>
+										<td class="crypto-name"><a href="https://www.google.com/finance/quote/AMZN:NASDAQ">Amazon<span>(AMZN)</span></a></td>
+										<td class="crypto-price">$102.51</td>
+										<td class="crypto-change profit">+0.11%</td>
+										<td class="crypto-max">$1.75 trillion</td>
+									</tr>
+									<tr>
+										<td class="crypto-number">3</td>
+										<td class="crypto-name"><a href="https://www.google.com/finance/quote/GOOGL:NASDAQ">Alphabet <span>(GOOGL)</span></a></td>
+										<td class="crypto-price">$108.87</td>
+										<td class="crypto-change profit">+1.34%</td>
+										<td class="crypto-max">$1.8 trillion</td>
+									</tr>
+									<tr>
+										<td class="crypto-number">4</td>
+										<td class="crypto-name"><a href="https://www.google.com/finance/quote/META:NASDAQ">Facebook <span>(META)</span></a></td>
+										<td class="crypto-price">$221.49</td>
+										<td class="crypto-change profit">+0.52%</td>
+										<td class="crypto-max">$1 trillion</td>
+									</tr>
+									<tr>
+										<td class="crypto-number">5</td>
+										<td class="crypto-name"><a href="https://www.google.com/finance/quote/TSLA:NASDAQ">Tesla <span>(TSLA)</span></a></td>
+										<td class="crypto-price">$185</td>
+										<td class="crypto-change loss">-0.48%</td>
+										<td class="crypto-max">$0.75 trillion</td>
+									</tr>
+									<tr>
+										<td class="crypto-number">6</td>
+										<td class="crypto-name"><a href="https://www.google.com/finance/quote/AAPL:NASDAQ">Apple <span>(AAPL)</span></a></td>
+										<td class="crypto-price">$165.21</td>
+										<td class="crypto-change loss">-0.21%</td>
+										<td class="crypto-max">$2.4 trillion</td>
+									</tr>
+								</table>
+							</div><!-- /.crypto-price-table-wrapper -->
+						</div><!-- /.tab-pane -->
+					</div>
+				</div><!-- /.crypto-tabs -->
+			</div><!-- /.container -->
+		</section><!-- /.about-three-section -->
+
+		<section class="funfact-one-section">
+			<div class="container">
+				<div class="funfact-one-section-inner">
+					<div class="row gutter-y-60">
+						<div class="col-xl-3 col-lg-6">
+							<div class="funfact-one-box count-box">
+								<div class="funfact-one-icon"><img src="{{ url_for('static', filename='picture/funfact-1-1.svg') }}" class="img-fluid" alt=""></div>
+                
+								<h2 class="funfact-one-number">
+									<span class="count-text" data-stop="5.73" data-speed="2000">00</span>
+									<span>M+</span>
+								</h2><!-- /.funfact-one-number -->
+								<div class="funfact-one-title">Customers In Use</div><!-- /.funfact-one-title -->
+							</div><!-- /.funfact-one-box -->
+						</div><!-- /.col -->
+						<div class="col-xl-3 col-lg-6">
+							<div class="funfact-one-box count-box">
+								<div class="funfact-one-icon"><img src="{{ url_for('static', filename='picture/funfact-1-2.svg') }}" class="img-fluid" alt=""></div>
+                
+								<h2 class="funfact-one-number">
+									<span class="count-text" data-stop="324" data-speed="2000">00</span>
+									<span>+</span>
+								</h2><!-- /.funfact-one-number -->
+								<div class="funfact-one-title">Institutions Subscribed</div><!-- /.funfact-one-title -->
+							</div><!-- /.funfact-one-box -->
+						</div><!-- /.col -->
+						<div class="col-xl-3 col-lg-6">
+							<div class="funfact-one-box count-box">
+								<div class="funfact-one-icon"><img src="{{ url_for('static', filename='picture/funfact-1-3.svg') }}" class="img-fluid" alt=""></div>
+								<h2 class="funfact-one-number">
+									<span>$</span>
+									<span class="count-text" data-stop="1.9" data-speed="2000">00</span>
+									<span>B+</span>
+								</h2><!-- /.funfact-one-number -->
+								<div class="funfact-one-title">Cash Flow Generated</div><!-- /.funfact-one-title -->
+							</div><!-- /.funfact-one-box -->
+						</div><!-- /.col -->
+						<div class="col-xl-3 col-lg-6">
+							<div class="funfact-one-box count-box">
+								<div class="funfact-one-icon"><img src="{{ url_for('static', filename='picture/funfact-1-4.svg') }}" class="img-fluid" alt=""></div>
+								<h2 class="funfact-one-number">
+									<span class="count-text" data-stop="276" data-speed="2000">00</span>
+									<span>+</span>
+								</h2><!-- /.funfact-one-number -->
+								<div class="funfact-one-title">IPO success</div><!-- /.funfact-one-title -->
+							</div><!-- /.funfact-one-box -->
+						</div><!-- /.col -->
+					</div>
+				</div><!-- /.funfact-one-section-inner -->
+			</div>
+		</section><!-- /.funfact-one-section -->
+		
+		
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<svg class="scroll-to-top-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</a>
+	</div><!-- /.page-wrapper -->
+
+<script>
+var dropdown = document.querySelector('.dropdown');
+var dropbtn = document.querySelector('.dropbtn');
+var dropdownContent = document.querySelector('.dropdown-content');
+
+// Toggle the dropdown menu visibility
+dropbtn.addEventListener('click', function() {
+dropdownContent.classList.toggle('show');
+});
+
+// Close the dropdown menu when clicking outside of it
+window.addEventListener('click', function(event) {
+if (!event.target.matches('.dropbtn')) {
+  var dropdowns = document.querySelectorAll('.dropdown-content');
+  for (var i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+});
+function showBalance() {
+var balance = document.getElementById('balance');
+var showBtn = document.getElementById('show-btn');
+var hideBtn = document.getElementById('hide-btn');
+balance.style.display = 'block';
+showBtn.style.display = 'none';
+hideBtn.style.display = 'block';
+}
+
+function hideBalance() {
+var balance = document.getElementById('balance');
+var showBtn = document.getElementById('show-btn');
+var hideBtn = document.getElementById('hide-btn');
+balance.style.display = 'none';
+showBtn.style.display = 'block';
+hideBtn.style.display = 'none';
+}
+
+function godetail(){
+var symbol = $('#symbol').val()
+if (!symbol) {
+  alert('symbol is empty');
+  return;
+}
+window.location.href="../stock/detail?symbol="+symbol;
+}
+</script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.appear.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.singlePageNav.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>
